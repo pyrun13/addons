@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="modify_material_wizard_view_form_1176" model="ir.ui.view">
+            <field name="name">modify.material.wizard.view_form</field>
+            <field name="model">modify.material.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+  <b>提示：组件的数量输入正数，则为补料；组件的数量输入负数，则为退料。</b>
+  <field name="line_ids">
+    <tree editable="top" create="false" delete="false">
+      <field name="product_id" readonly="1"/>
+      <field name="qty"/>
+      <field name="product_uom" groups="uom.group_uom"/>
+    </tree>
+  </field>
+  <footer>
+    <button string="确定补料" name="action_confirm" type="object" class="btn btn-primary"/>
+    <button string="取消" special="cancel" class="btn btn-default"/>
+  </footer>
+</form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

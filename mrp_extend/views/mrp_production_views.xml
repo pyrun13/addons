@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="mrp_production_view_form_extend_1175" model="ir.ui.view">
+            <field name="name">mrp.production.view_form_extend</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view" />
+            <field name="type">form</field>
+            <field name="priority">200</field>
+            <field name="arch" type="xml">
+                <data>
+  <xpath expr="//header/button[@name='action_cancel']" position="after">
+    <button string="物料调拨" name="action_material_stock_move" type="object" class="btn btn-primary" attrs="{'invisible': ['|', ('is_locked', '=', False), ('state', 'in', ['draft', 'cancel'])]}"/>
+  </xpath>
+  <xpath expr="//button[@name='action_see_move_scrap']" position="after">
+    <field name="material_stock_picking_count" invisible="1"/>
+    <button class="oe_stat_button" name="action_see_material_stock_picking" type="object" icon="fa-truck" attrs="{'invisible': [('material_stock_picking_count', '=', 0)]}">
+        <div class="o_field_widget o_stat_info">
+            <span class="o_stat_value"><field name="material_stock_picking_count"/></span>
+            <span class="o_stat_text">物料调拨</span>
+        </div>
+    </button>
+  </xpath>
+  <xpath expr="//notebook/page[1]" position="after">
+    <page string="物料统计">
+      <field name="material_statistics_ids" readonly="1"/>
+    </page>
+  </xpath>
+</data>
+            </field>
+        </record>
+        <record id="mrp_production_view_tree_mrp_extend_1178" model="ir.ui.view">
+            <field name="name">mrp.production.view_tree_mrp_extend</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_tree_view" />
+            <field name="type">tree</field>
+            <field name="priority">200</field>
+            <field name="arch" type="xml">
+                <data>
+  <xpath expr="//field[@name='product_id']" position="after">
+    <field name="product_unit_price"/>
+    <field name="product_unit_price_currency_id" invisible="1"/>
+  </xpath>
+  <xpath expr="//field[@name='activity_exception_decoration']" position="after">
+    <field name="material_unbalance" optional="show"/>
+  </xpath>
+</data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

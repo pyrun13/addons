@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="mro_bom_view_form_extend_1174" model="ir.ui.view">
+            <field name="name">mro.bom_view_form_extend</field>
+            <field name="model">mrp.bom</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_form_view" />
+            <field name="type">form</field>
+            <field name="priority">200</field>
+            <field name="arch" type="xml">
+                <data>
+  <xpath expr="//field[@name='bom_line_ids']/tree/field[@name='product_uom_id']" position="after">
+    <field name="attrition_rate"/>
+  </xpath>
+</data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

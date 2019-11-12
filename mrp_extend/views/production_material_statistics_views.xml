@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="production_material_statistics_view_tree_1186" model="ir.ui.view">
+            <field name="name">production.material.statistics.view_tree</field>
+            <field name="model">production.material.statistics</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false" delete="false" duplicate="false">
+  <field name="product_id"/>
+  <field name="demand_qty"/>
+  <field name="picking_balance"/>
+  <field name="received_qty"/>
+  <field name="done_qty"/>
+  <field name="scrap_qty"/>
+</tree>
+            </field>
+        </record>
+        <record id="production_material_statistics_view_form_1187" model="ir.ui.view">
+            <field name="name">production.material.statistics.view_form</field>
+            <field name="model">production.material.statistics</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false" duplicate="false">
+  <sheet>
+    <group>
+      <field name="product_id"/>
+      <field name="demand_qty"/>
+      <field name="picking_balance"/>
+      <field name="received_qty"/>
+      <field name="done_qty"/>
+      <field name="scrap_qty"/>
+    </group>
+  </sheet>
+</form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
